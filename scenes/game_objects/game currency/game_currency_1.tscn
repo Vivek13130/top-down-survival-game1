@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://daw56qnpmia6m"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/game currency/game_currency_1.gd" id="1_8h62u"]
+[ext_resource type="Texture2D" uid="uid://dfcb5eqmpdbwh" path="res://scenes/game_objects/game currency/game_curr_1.png" id="1_tvrfy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epofw"]
+
+[node name="game_currency_1" type="Node2D"]
+script = ExtResource("1_8h62u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tvrfy")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_epofw")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
